@@ -12,5 +12,8 @@
     "chai"
   ],
   "author": "Ashish Nagvanshi",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
 }
