@@ -24,7 +24,39 @@ import express from "express";
 
 
 
-   connect_db();
+   connect_db()
+
+    .then(() => {
+
+       app.listen(process.env.PORT || 8000, () => {
+
+          
+          console.log(`App is running at ${process.env.PORT}`);
+
+
+
+
+       })
+
+
+
+
+    })
+
+   
+        
+
+        .catch(err =>  {
+
+             console.log("You have an error here is error message!!!", err)
+
+
+        })
+   
+
+
+
+   
 
 
 /*
