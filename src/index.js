@@ -24,9 +24,25 @@ import express from "express";
 
 
 
-   connect_db()
+   connect_db() 
+   
+   // you can see  inside the index.js who present in db folder where we call the data via link  that asynchronous property and to handle that we have used this then catch method ok||||
 
     .then(() => {
+
+
+       // let do that for error handleling
+
+         app.on("error", (err) => {
+
+           console.log("error message !! ", err);
+
+          throw err
+
+         })
+
+
+
 
        app.listen(process.env.PORT || 8000, () => {
 
