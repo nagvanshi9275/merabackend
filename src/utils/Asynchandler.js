@@ -1,46 +1,46 @@
 
 
 
-// basically inside this file i create a wrapper and then i i ceate a function every time 
-
-// when i need i call this function again and again lets  see.
 
 
-export {asynchandler}
 
 
-const asynchandler = (fun) =>  async(req, res, next) => {
+
+
+export {asyncHandler}
+
+
+// this one is the very first and effective method for the create a wrapper and put the function inside of that
+
+
+const asyncHandler = () => (fun) =>  async(res, req, next) => {
 
     try {
 
-        await fun(req, res, next)
+        await fun(res, req, next)
         
     } catch (error) {
+    
 
-        res.status(err.code || 500).json({
-          
+      console.log(error.code || 500).json({
+
+
+            /// for better communication with frontend developer
+
             success: false,
+
             message: err.message
 
-        })
-        
+
+      })
+
+
+
     }
+     
 
 
 }
-
-                 
-
-           
-
-
-
-
-
-
-
-
-
 
 
 
