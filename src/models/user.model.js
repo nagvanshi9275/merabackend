@@ -4,7 +4,11 @@
 
 
 
-import { Mongoose, Schema } from "mongoose";
+import mongoose , {  Schema } from "mongoose";
+
+import jwt from "jsonwebtoken"
+
+import bcrypt from "bcrypt"
 
 // Define userSchema
 
@@ -134,7 +138,29 @@ const userSchema = new Schema(
 // now lets export this 
 
 
-export const User = Mongoose.model("User", userSchema)
+export const User = mongoose.model("User", userSchema)
+
+
+
+userSchema.pre('save', async function(next){
+
+  //which one you want to encrypt
+
+  this.password = bcrypt.hash(this.password, 10)
+
+
+  next()
+
+
+
+})
+
+
+
+
+
+
+
 
 
 
